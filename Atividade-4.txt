@@ -1,0 +1,235 @@
+Questão 1
+
+/*
+Programa: Exibir os número ímpares.
+Data de criação: 13/04/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    int number;
+
+    printf("Digite um número: ");
+    scanf("%d", &number);
+
+    for(int i = 1; i <= number; i++)
+    {
+        if (i%2==1)
+            printf("%d\n",i);
+    }
+    return 0;
+}
+
+------------------------------------------------------------------------------
+Questão 2
+
+/*
+Programa: Parcelas.
+Data de criação: 13/04/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    float preco;
+    int parcelas;
+    float valorASerPago;
+
+
+    printf("Digite o preço do produto: ");
+    scanf("%f", &preco);
+    printf("Digite quantas parcelas deseja pagar: ");
+    scanf("%d", &parcelas);
+
+    valorASerPago = (preco/parcelas);
+
+    for(int i = 1; i <= parcelas; i++)
+    {
+        printf("Parcela %d - R$ %.2f \n", i, valorASerPago);
+        valorASerPago += (preco/parcelas)*0.02;
+    }
+    return 0;
+}
+
+------------------------------------------------------------------------------
+Questão 3
+
+/*
+Programa: Dias de vida.
+Data de criação: 13/04/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <windows.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    //variáveis
+    int anoNascimento, dias = 365;
+    //recuperar o ano atual
+    SYSTEMTIME str_t;
+    GetSystemTime(&str_t);
+    int anoAtual = str_t.wYear;
+
+    printf("Qual ano você nasceu:");
+    scanf("%d", &anoNascimento);
+
+    if(anoAtual < anoNascimento)
+    {
+        printf("Data de nascimento inválida");
+    }
+    else
+    {
+        int count = 0;
+        for(int i = anoNascimento + 1; i <= anoAtual; i++)
+        {
+
+            if((i % 4 == 0) && (i % 100 != 0))
+            {
+                count += dias + 1;
+            }
+            else count += dias;
+        }
+        printf("Você viveu: %d dias\n", count);
+
+    }
+
+
+    return 0;
+}
+
+
+------------------------------------------------------------------------------
+Questão 4
+
+/*
+Programa: Informar o maior número.
+Data de criação: 14/04/2021.
+Autora: Maria Clara Almeida Souza
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    // declaração de variáveis
+    int number;
+    //variável auxiliar
+    int aux = 0;
+    
+    for(int i = 0; i < 10; i++)
+    {
+        printf("Digite um número: ");
+        scanf("%d", &number);
+        if(number > aux) {
+            aux = number;
+        }
+
+    }
+    printf("o maior valor é: %d", aux);
+
+    return 0;
+}
+
+------------------------------------------------------------------------------
+Questão 5
+
+/*
+Programa: Valor referente aos dias hospedado.
+Data de criação: 14/04/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    // declaração de variáveis
+    int dias;
+    float total;
+
+    printf("Quantos dias ficou hospedado: ");
+    scanf("%d", &dias);
+    total = 0;
+
+    for(int i = 1; i <= dias; i++)
+    {
+        if(i <= 5)
+        {
+            total += 80;
+        }
+        else if (i > 5 && i <=10)
+        {
+            total += 60;
+        }
+        else total += 50;
+    }
+    printf("Total: R$ %.2f", total);
+
+}
+
+------------------------------------------------------------------------------
+Questão 6
+
+/*
+Programa: Informar a média salarial de 10 funcionários e quantos recebem acima de 3 mil.
+Data de criação: 14/04/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    // declaração de variáveis
+    int count;
+    float salarioFuncionario, aux;
+
+    aux = 0;
+    count = 0;
+    for(int i = 0; i < 10; i++)
+    {
+        printf("Digite seu salário:");
+        scanf("%f", &salarioFuncionario);
+        aux += salarioFuncionario;
+        if(salarioFuncionario > 3000.00)
+        {
+            count++;
+        }
+    }
+    printf("Média: R$ %.2f \n", aux/10);
+    printf("Pessoas com salário acima de 3 mil: %d", count);
+    return 0;
+}

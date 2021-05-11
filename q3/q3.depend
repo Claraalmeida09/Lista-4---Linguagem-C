@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1618349972 source:c:\users\cllar\desktop\cesmac\laboratório de programação\atividade 4\q3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<windows.h>
+
